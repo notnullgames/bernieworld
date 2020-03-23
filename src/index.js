@@ -1,6 +1,8 @@
 import Phaser from 'phaser'
 import GameScalePlugin from 'phaser-plugin-game-scale'
 
+import objects from './objects/*.js'
+
 export const game = new Phaser.Game({
   type: Phaser.AUTO,
   width: 240,
@@ -8,7 +10,7 @@ export const game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 200 }
+      gravity: { y: 40 }
     }
   },
   pixelArt: true,
@@ -28,54 +30,60 @@ export const game = new Phaser.Game({
   }
 })
 
+const loadMap = (app, name) => {
+  const map = app.make.tilemap({ key: name })
+  const tiles = map.tilesets.map(t => map.addTilesetImage(t.name))
+  map.layers.forEach(layer => {
+    // TODO: handle layer.properties.speed
+    if (Array.isArray(layer.properties) && layer.properties.find(p => p.name === 'blocks' && p.value)) {
+      map.createDynamicLayer(layer.name, tiles, 0, 0)
+      map.setCollisionByExclusion([-1])
+      app.physics.world.bounds.width = layer.width
+      app.physics.world.bounds.height = layer.height
+      app.floor = layer
+    } else {
+      map.createStaticLayer(layer.name, tiles, 0, 0)
+    }
+  })
+  return map
+}
+
 function preload () {
-  this.load.tilemapTiledJSON('1-1', '/assets/maps/1-1.json')
-  this.load.tilemapTiledJSON('1-2', '/assets/maps/1-2.json')
-  this.load.tilemapTiledJSON('1-3', '/assets/maps/1-3.json')
-  this.load.tilemapTiledJSON('2-1', '/assets/maps/2-1.json')
-  this.load.tilemapTiledJSON('2-2', '/assets/maps/2-2.json')
-  this.load.tilemapTiledJSON('2-3', '/assets/maps/2-3.json')
-  this.load.tilemapTiledJSON('3-1', '/assets/maps/3-1.json')
-  this.load.tilemapTiledJSON('3-2', '/assets/maps/3-2.json')
-  this.load.tilemapTiledJSON('3-3', '/assets/maps/3-3.json')
-  this.load.tilemapTiledJSON('4-1', '/assets/maps/4-1.json')
-  this.load.tilemapTiledJSON('4-2', '/assets/maps/4-2.json')
-  this.load.tilemapTiledJSON('4-3', '/assets/maps/4-3.json')
-  this.load.tilemapTiledJSON('bg-castle1', '/assets/maps/bg-castle1.json')
+  for (let w = 1; w < 5; w++) {
+    this.load.tilemapTiledJSON(`bg-world${w}`, `/assets/maps/bg-world${w}.json`)
+    this.load.image(`world${w}_outdoor`, `/assets/maps/world${w}_outdoor.png`)
+    if (w === 1 || w === 4) {
+      this.load.tilemapTiledJSON(`bg-castle${w}`, `/assets/maps/bg-castle${w}.json`)
+      this.load.image(`world${w}_castle`, `/assets/maps/world${w}_castle.png`)
+    }
+    for (let s = 1; s < 4; s++) {
+      this.load.tilemapTiledJSON(`${w}-${s}`, `/assets/maps/${w}-${s}.json`)
+    }
+  }
+  Object.values(objects).forEach(object => {
+    if (object.default.preload) {
+      object.default.preload.bind(this)()
+    } else {
+      console.log(object.default, 'no preload')
+    }
+  })
   this.load.tilemapTiledJSON('bg-castle2', '/assets/maps/bg-castle2.json')
-  this.load.tilemapTiledJSON('bg-castle4', '/assets/maps/bg-castle4.json')
-  this.load.tilemapTiledJSON('bg-world1', '/assets/maps/bg-world1.json')
-  this.load.tilemapTiledJSON('bg-world2', '/assets/maps/bg-world2.json')
-  this.load.tilemapTiledJSON('bg-world3', '/assets/maps/bg-world3.json')
-  this.load.tilemapTiledJSON('bg-world4', '/assets/maps/bg-world4.json')
-  this.load.image('world1_castle', '/assets/maps/world1_castle.png')
-  this.load.image('world1_outdoor', '/assets/maps/world1_outdoor.png')
-  this.load.image('world2_outdoor', '/assets/maps/world2_outdoor.png')
-  this.load.image('world3_outdoor', '/assets/maps/world3_outdoor.png')
-  this.load.image('world4_castle', '/assets/maps/world4_castle.png')
-  this.load.image('world4_outdoor', '/assets/maps/world4_outdoor.png')
 }
 
 function create () {
-  const loadMap = name => {
-    const map = this.make.tilemap({ key: name })
-    const tiles = map.tilesets.map(t => map.addTilesetImage(t.name))
-    map.layers.forEach(layer => {
-      if (Array.isArray(layer.properties) && layer.properties.find(p => p.name === 'blocks' && p.value)) {
-        map.createDynamicLayer(layer.name, tiles, 0, 0)
-        map.setCollisionByExclusion([-1])
-        this.physics.world.bounds.width = layer.width
-        this.physics.world.bounds.height = layer.height
-      } else {
-        map.createStaticLayer(layer.name, tiles, 0, 0)
+  this.loadedObjects = []
+  loadMap(this, 'bg-world1')
+  const map = loadMap(this, '1-1')
+  map.objects.forEach(o => {
+    o.objects.forEach(object => {
+      if (objects[object.type]) {
+        const GameObject = objects[object.type].default
+        this.loadedObjects.push(new GameObject(this, object.x, object.y, object))
       }
     })
-    return map
-  }
-
-  loadMap('bg-world1')
-  loadMap('1-1')
+  })
 }
 
 function update (time, delta) {
+  this.loadedObjects.forEach(o => o.update(time, delta))
 }

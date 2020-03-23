@@ -42,7 +42,7 @@
                  "id":96,
                  "name":"",
                  "rotation":0,
-                 "type":"",
+                 "type":"player",
                  "visible":true,
                  "width":16,
                  "x":32,
@@ -53,8 +53,14 @@
                  "height":24,
                  "id":275,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"magamba",
                  "visible":true,
                  "width":16,
                  "x":512,
@@ -65,8 +71,14 @@
                  "height":24,
                  "id":276,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"magamba",
                  "visible":true,
                  "width":16,
                  "x":448,
@@ -77,8 +89,14 @@
                  "height":24,
                  "id":277,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"magamba",
                  "visible":true,
                  "width":16,
                  "x":384,
@@ -89,8 +107,14 @@
                  "height":112,
                  "id":278,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"paramitch-red",
                  "visible":true,
                  "width":16,
                  "x":928,
@@ -101,8 +125,14 @@
                  "height":112,
                  "id":279,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"paramitch-red",
                  "visible":true,
                  "width":16,
                  "x":1408,
@@ -114,7 +144,7 @@
                  "id":281,
                  "name":"",
                  "rotation":0,
-                 "type":"",
+                 "type":"cheese",
                  "visible":true,
                  "width":16,
                  "x":1840,
@@ -125,8 +155,14 @@
                  "height":112,
                  "id":286,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"paramitch-red",
                  "visible":true,
                  "width":16,
                  "x":2048,
@@ -137,8 +173,14 @@
                  "height":40,
                  "id":291,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"mitch-green",
                  "visible":true,
                  "width":16,
                  "x":2688,
@@ -149,8 +191,14 @@
                  "height":40,
                  "id":293,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"mitch-green",
                  "visible":true,
                  "width":16,
                  "x":2416,
@@ -161,8 +209,14 @@
                  "height":40,
                  "id":294,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"mitch-green",
                  "visible":true,
                  "width":16,
                  "x":2544,
@@ -173,8 +227,14 @@
                  "height":40,
                  "id":296,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"mitch-green",
                  "visible":true,
                  "width":16,
                  "x":2816,
@@ -185,8 +245,14 @@
                  "height":40,
                  "id":297,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"mitch-red",
                  "visible":true,
                  "width":16,
                  "x":2944,
@@ -197,8 +263,14 @@
                  "height":112,
                  "id":298,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"paramitch-red",
                  "visible":true,
                  "width":16,
                  "x":3824,
@@ -209,8 +281,14 @@
                  "height":112,
                  "id":299,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"paramitch-red",
                  "visible":true,
                  "width":16,
                  "x":4240,
@@ -221,8 +299,14 @@
                  "height":16,
                  "id":300,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":3328,
@@ -233,8 +317,14 @@
                  "height":16,
                  "id":301,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":3600,
@@ -245,8 +335,14 @@
                  "height":16,
                  "id":302,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":4144,
@@ -257,8 +353,14 @@
                  "height":16,
                  "id":303,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":4448,
@@ -269,8 +371,14 @@
                  "height":16,
                  "id":307,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":4416,
@@ -281,8 +389,14 @@
                  "height":16,
                  "id":308,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":4384,
@@ -293,8 +407,14 @@
                  "height":16,
                  "id":309,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":4352,
@@ -305,8 +425,14 @@
                  "height":16,
                  "id":310,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }],
                  "rotation":0,
-                 "type":"",
+                 "type":"ice",
                  "visible":true,
                  "width":16,
                  "x":4480,
@@ -339,13 +465,218 @@
          "tilewidth":16
         }, 
         {
-         "columns":0,
+         "columns":32,
          "firstgid":513,
+         "grid":
+            {
+             "height":1,
+             "orientation":"orthogonal",
+             "width":1
+            },
          "margin":0,
          "name":"objects",
          "spacing":0,
-         "tilecount":0,
-         "tileheight":32,
+         "tilecount":23,
+         "tileheight":192,
+         "tiles":[
+                {
+                 "id":0,
+                 "image":"objects\/bernie.png",
+                 "imageheight":32,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":1,
+                 "image":"objects\/magamba-left.png",
+                 "imageheight":24,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":2,
+                 "image":"objects\/magamba-right.png",
+                 "imageheight":24,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":3,
+                 "image":"objects\/mitch-green-left.png",
+                 "imageheight":40,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":4,
+                 "image":"objects\/mitch-green-right.png",
+                 "imageheight":40,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":5,
+                 "image":"objects\/mitch-red-left.png",
+                 "imageheight":40,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":6,
+                 "image":"objects\/mitch-red-right.png",
+                 "imageheight":40,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":7,
+                 "image":"objects\/paramitch-green-left.png",
+                 "imageheight":112,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":8,
+                 "image":"objects\/paramitch-green-right.png",
+                 "imageheight":112,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":9,
+                 "image":"objects\/paramitch-red-left.png",
+                 "imageheight":114,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":10,
+                 "image":"objects\/paramitch-red-right.png",
+                 "imageheight":114,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":11,
+                 "image":"objects\/trashman.png",
+                 "imageheight":32,
+                 "imagewidth":32,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":12,
+                 "image":"objects\/gopoboo.png",
+                 "imageheight":192,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":13,
+                 "image":"objects\/cheese-left.png",
+                 "imageheight":24,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":14,
+                 "image":"objects\/cheese-right.png",
+                 "imageheight":24,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":15,
+                 "image":"objects\/tikitorcher-left.png",
+                 "imageheight":39,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":16,
+                 "image":"objects\/tikitorcher-right.png",
+                 "imageheight":39,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":17,
+                 "image":"objects\/fire.png",
+                 "imageheight":16,
+                 "imagewidth":32,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":18,
+                 "image":"objects\/ice.png",
+                 "imageheight":16,
+                 "imagewidth":16,
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"{ \"flip\": true }"
+                        }]
+                }, 
+                {
+                 "id":19,
+                 "image":"objects\/lever.png",
+                 "imageheight":16,
+                 "imagewidth":16
+                }, 
+                {
+                 "id":20,
+                 "image":"objects\/republican.png",
+                 "imageheight":32,
+                 "imagewidth":32
+                }, 
+                {
+                 "id":21,
+                 "image":"objects\/cheeto.png",
+                 "imageheight":32,
+                 "imagewidth":32
+                }, 
+                {
+                 "id":22,
+                 "image":"objects\/fist.png",
+                 "imageheight":16,
+                 "imagewidth":16
+                }],
          "tilewidth":32
         }],
  "tilewidth":16,

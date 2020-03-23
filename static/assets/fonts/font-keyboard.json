@@ -1,0 +1,451 @@
+{
+  "ascent": 10,
+  "descent": 0,
+  "linegap": 2,
+  "advance": -1,
+  "glyphs": [
+    {
+      "chr": "A",
+      "width": 9
+    },
+    {
+      "chr": "B",
+      "width": 9
+    },
+    {
+      "chr": "C",
+      "width": 9
+    },
+    {
+      "chr": "D",
+      "width": 9
+    },
+    {
+      "chr": "E",
+      "width": 9
+    },
+    {
+      "chr": "F",
+      "width": 9
+    },
+    {
+      "chr": "G",
+      "width": 9
+    },
+    {
+      "chr": "H",
+      "width": 9
+    },
+    {
+      "chr": "I",
+      "width": 8
+    },
+    {
+      "chr": "J",
+      "width": 9
+    },
+    {
+      "chr": "K",
+      "width": 9
+    },
+    {
+      "chr": "L",
+      "width": 9
+    },
+    {
+      "chr": "M",
+      "width": 9
+    },
+    {
+      "chr": "N",
+      "width": 9
+    },
+    {
+      "chr": "O",
+      "width": 9
+    },
+    {
+      "chr": "P",
+      "width": 9
+    },
+    {
+      "chr": "Q",
+      "width": 9
+    },
+    {
+      "chr": "R",
+      "width": 9
+    },
+    {
+      "chr": "S",
+      "width": 9
+    },
+    {
+      "chr": "T",
+      "width": 8
+    },
+    {
+      "chr": "U",
+      "width": 9
+    },
+    {
+      "chr": "V",
+      "width": 9
+    },
+    {
+      "chr": "W",
+      "width": 9
+    },
+    {
+      "chr": "X",
+      "width": 9
+    },
+    {
+      "chr": "Y",
+      "width": 8
+    },
+    {
+      "chr": "Z",
+      "width": 9
+    },
+    {
+      "chr": "a",
+      "width": 8
+    },
+    {
+      "chr": "b",
+      "width": 8
+    },
+    {
+      "chr": "c",
+      "width": 8
+    },
+    {
+      "chr": "d",
+      "width": 8
+    },
+    {
+      "chr": "e",
+      "width": 8
+    },
+    {
+      "chr": "f",
+      "width": 7
+    },
+    {
+      "chr": "g",
+      "width": 8
+    },
+    {
+      "chr": "h",
+      "width": 8
+    },
+    {
+      "chr": "i",
+      "width": 4
+    },
+    {
+      "chr": "j",
+      "width": 5
+    },
+    {
+      "chr": "k",
+      "width": 8
+    },
+    {
+      "chr": "l",
+      "width": 4
+    },
+    {
+      "chr": "m",
+      "width": 9
+    },
+    {
+      "chr": "n",
+      "width": 8
+    },
+    {
+      "chr": "o",
+      "width": 8
+    },
+    {
+      "chr": "p",
+      "width": 8
+    },
+    {
+      "chr": "q",
+      "width": 8
+    },
+    {
+      "chr": "r",
+      "width": 7
+    },
+    {
+      "chr": "s",
+      "width": 8
+    },
+    {
+      "chr": "t",
+      "width": 6
+    },
+    {
+      "chr": "u",
+      "width": 8
+    },
+    {
+      "chr": "v",
+      "width": 7
+    },
+    {
+      "chr": "w",
+      "width": 9
+    },
+    {
+      "chr": "x",
+      "width": 9
+    },
+    {
+      "chr": "y",
+      "width": 8
+    },
+    {
+      "chr": "z",
+      "width": 8
+    },
+    {
+      "chr": "0",
+      "width": 9
+    },
+    {
+      "chr": "1",
+      "width": 9
+    },
+    {
+      "chr": "2",
+      "width": 9
+    },
+    {
+      "chr": "3",
+      "width": 9
+    },
+    {
+      "chr": "4",
+      "width": 9
+    },
+    {
+      "chr": "5",
+      "width": 9
+    },
+    {
+      "chr": "6",
+      "width": 9
+    },
+    {
+      "chr": "7",
+      "width": 9
+    },
+    {
+      "chr": "8",
+      "width": 9
+    },
+    {
+      "chr": "9",
+      "width": 9
+    },
+    {
+      "chr": ".",
+      "width": 4
+    },
+    {
+      "chr": ",",
+      "width": 4
+    },
+    {
+      "chr": ";",
+      "width": 4
+    },
+    {
+      "chr": ":",
+      "width": 4
+    },
+    {
+      "chr": "?",
+      "width": 8
+    },
+    {
+      "chr": "!",
+      "width": 6
+    },
+    {
+      "chr": "-",
+      "width": 9
+    },
+    {
+      "chr": "_",
+      "width": 9
+    },
+    {
+      "chr": "~",
+      "width": 9
+    },
+    {
+      "chr": "#",
+      "width": 9
+    },
+    {
+      "chr": "\"",
+      "width": 7
+    },
+    {
+      "chr": "'",
+      "width": 5
+    },
+    {
+      "chr": "&",
+      "width": 9
+    },
+    {
+      "chr": "(",
+      "width": 5
+    },
+    {
+      "chr": ")",
+      "width": 5
+    },
+    {
+      "chr": "[",
+      "width": 5
+    },
+    {
+      "chr": "]",
+      "width": 5
+    },
+    {
+      "chr": "{",
+      "width": 6
+    },
+    {
+      "chr": "}",
+      "width": 6
+    },
+    {
+      "chr": "^",
+      "width": 9
+    },
+    {
+      "chr": "|",
+      "width": 4
+    },
+    {
+      "chr": "`",
+      "width": 5
+    },
+    {
+      "chr": "/",
+      "width": 7
+    },
+    {
+      "chr": "\\",
+      "width": 7
+    },
+    {
+      "chr": "@",
+      "width": 9
+    },
+    {
+      "chr": "+",
+      "width": 8
+    },
+    {
+      "chr": "=",
+      "width": 9
+    },
+    {
+      "chr": "%",
+      "width": 9
+    },
+    {
+      "chr": "$",
+      "width": 8
+    },
+    {
+      "chr": "<",
+      "width": 7
+    },
+    {
+      "chr": ">",
+      "width": 7
+    },
+    {
+      "chr": " ",
+      "width": 5
+    },
+    {
+      "desc": "Left button",
+      "ignoreColor": true,
+      "chr": "\uE100",
+      "width": 13,
+      "newRow": true
+    },
+    {
+      "desc": "Right button",
+      "ignoreColor": true,
+      "chr": "\uE101",
+      "width": 13
+    },
+    {
+      "desc": "Down button",
+      "ignoreColor": true,
+      "chr": "\uE102",
+      "width": 13
+    },
+    {
+      "desc": "Up button",
+      "ignoreColor": true,
+      "chr": "\uE103",
+      "width": 13
+    },
+    {
+      "desc": "Alt",
+      "ignoreColor": true,
+      "chr": "\uE104",
+      "width": 13
+    },
+    {
+      "desc": "Main",
+      "ignoreColor": true,
+      "chr": "\uE105",
+      "width": 13
+    },
+    {
+      "desc": "Left alternate",
+      "ignoreColor": true,
+      "chr": "\uE108",
+      "width": 13
+    },
+    {
+      "desc": "Right alternate",
+      "ignoreColor": true,
+      "chr": "\uE109",
+      "width": 13
+    },
+    {
+      "desc": "Down alternate",
+      "ignoreColor": true,
+      "chr": "\uE10A",
+      "width": 13
+    },
+    {
+      "desc": "Up alternate",
+      "ignoreColor": true,
+      "chr": "\uE10B",
+      "width": 13
+    },
+    {
+      "desc": "Fullscreen",
+      "ignoreColor": true,
+      "chr": "\uE11F",
+      "width": 41
+    }
+  ]
+}
