@@ -10,7 +10,7 @@ export const game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 40 }
+      gravity: { y: 400 }
     }
   },
   pixelArt: true,
