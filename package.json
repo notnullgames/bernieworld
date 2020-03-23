@@ -1,0 +1,30 @@
+{
+  "name": "bernieworld",
+  "version": "1.0.0",
+  "description": "I love [Super Bernie World](https://eniko.itch.io/superbernieworld), but they use a proprietary game-engine that they cant't release as open-source. For fun, I ported it to [pixi.js](https://www.pixijs.com/) using their content. All game-content credit goes to [eniko](https://eniko.itch.io/). This makes it so you can edit levels and make new ones!",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "deploy": "surge "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notnullgames/bernieworld.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/notnullgames/bernieworld/issues"
+  },
+  "homepage": "https://github.com/notnullgames/bernieworld#readme",
+  "dependencies": {
+    "phaser": "^3.15.1",
+    "phaser-plugin-game-scale": "^1.3.5"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.3.1",
+    "surge": "^0.21.3"
+  }
+}
