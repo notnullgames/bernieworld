@@ -10,6 +10,7 @@ export const game = new Phaser.Game({
   physics: {
     default: 'arcade',
     arcade: {
+      // debug: true,
       gravity: { y: 400 }
     }
   },
@@ -49,6 +50,7 @@ const loadMap = (app, name) => {
 }
 
 function preload () {
+  this.load.atlas('sprites', '/assets/sprites.png', '/assets/sprites.json')
   for (let w = 1; w < 5; w++) {
     this.load.tilemapTiledJSON(`bg-world${w}`, `/assets/maps/bg-world${w}.json`)
     this.load.image(`world${w}_outdoor`, `/assets/maps/world${w}_outdoor.png`)

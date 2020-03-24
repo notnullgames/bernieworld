@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "rimraf dist && parcel build src/index.html",
+    "build": "rimraf dist && parcel build src/index.html && rimraf dist/assets/maps/objects",
     "deploy": "surge dist bernieworld.surge.sh",
     "predeploy": "npm run build"
   },
