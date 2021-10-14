@@ -9,12 +9,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: sans-serif;
 }
 canvas {
-  width: 90vw;
+  width: 90%;
   margin: 0;
   background: black;
-  border: 4px solid yellow;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+#welcome {
+  text-align: center;
 }
 </style>
 
@@ -29,3 +36,6 @@ canvas {
 }
 </script>
 <script type="module" src="game.js"></script>
+<div id="welcome">
+  <h2>Click here to start.</h2>
+</div>
