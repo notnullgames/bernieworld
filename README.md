@@ -1,6 +1,6 @@
 # Super Bernie World
 
-A clone of 
+A clone of [Super Bernie World](https://eniko.itch.io/superbernieworld)
 
 You can see the [current version here](https://notnullgames.github.io/bernieworld/).
 
