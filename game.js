@@ -93,6 +93,8 @@ async function loadMap (name) {
 
     const speed = 200
 
+    // TODO: this movement is jerkey, jump sucks, and this camera logic is rudimentary
+
     if (player) {
       k.keyPressRep('left', () => {
         player.move(k.vec2(-speed, 0))
