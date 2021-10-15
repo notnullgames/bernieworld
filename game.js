@@ -14,6 +14,9 @@ async function loadMap (name) {
   const { levels, key, mapObj } = await k.loadTiledMap(`./assets/maps/${name}.json`, './assets/maps/')
   const world = name.split('-')[0]
   const bgMap = await k.loadTiledMap(`./assets/maps/bg-world${world}.json`, './assets/maps/')
+  const blevels = bgMap.levels
+  const bkey = bgMap.key
+  const bmapObj = bgMap.mapObj
 
   // load an alternate set of keys that has area/solid added (for blocks)
   const staticKey = {}
@@ -34,30 +37,28 @@ async function loadMap (name) {
     }
   })
 
+  const blayersTiled = bmapObj.layers.map(layer => layer.name)
+
   // create a scene and add the layers
   k.scene(name, () => {
-    k.play('overworld', {
-      volume: 1,
-      loop: true
-    })
+    // setup layers
+    const layerNames = [...blayersTiled, ...Object.keys(layersAll)]
+    const defaultLayer = layersObject[0] || layersTiled[layersTiled.length - 1]
+    k.layers(layerNames, defaultLayer)
 
-    k.layers(['bg', ...Object.keys(layersAll)], layersObject[0] || layersTiled[layersTiled.length - 1])
+    const bLayers = {}
 
-    // load bg
-    // TODO: this is a pretty rudimentary way to repeat bg. I should figure out animating 1 bg for screen
-    const mapWidth = mapObj.width * mapObj.tilewidth
-    const bgWidth = bgMap.mapObj.width * bgMap.mapObj.tilewidth
-    let bgPos = 0
-    while (bgPos < mapWidth) {
-      for (const level of bgMap.levels) {
-        k.add([
-          k.addLevel(level, { pos: k.vec2(bgPos, 0), width: bgMap.mapObj.tilewidth, height: bgMap.mapObj.tileheight, ...bgMap.key }),
-          k.layer('bg')
-        ])
-      }
-      bgPos += bgWidth
+    // add background
+    for (const l in blayersTiled) {
+      const level = blevels[l]
+      const layerName = blayersTiled[l]
+      bLayers[layerName] = k.add([
+        k.addLevel(level, { width: bmapObj.tilewidth, height: bmapObj.tileheight, ...bkey }),
+        k.layer(layerName)
+      ])
     }
 
+    // add foreground
     for (const l in layersTiled) {
       const props = getProperties(layersAll[layersTiled[l]])
       if (props.blocks) {
@@ -66,11 +67,15 @@ async function loadMap (name) {
           k.layer(layersTiled[l])
         ])
       } else {
-        k.addLevel(levels[l], { width: mapObj.tilewidth, height: mapObj.tileheight, ...key })
+        k.add([
+          k.addLevel(levels[l], { width: mapObj.tilewidth, height: mapObj.tileheight, ...key }),
+          k.layer(layersTiled[l])
+        ])
       }
     }
 
     let player
+    k.play('overworld', { loop: true })
 
     for (const o of layersObject) {
       const { objects } = layersAll[o]
@@ -81,9 +86,11 @@ async function loadMap (name) {
             k.origin('botleft'),
             k.pos(object.x, object.y),
             k.body(),
-            k.area(),
+            k.area({ width: 16, height: 16 }),
+            k.origin('bot'),
             'player'
           ])
+          player.play('idle')
           k.camPos(k.vec2(player.pos.x, 0))
         }
       }
@@ -91,30 +98,41 @@ async function loadMap (name) {
 
     const speed = 200
 
-    // TODO: this movement is jerkey, jump sucks, and this camera logic is rudimentary
+    // TODO: this movement is jerky, jump sucks, and this camera logic is rudimentary
+
+    function doJump () {
+      if (player.grounded()) {
+        k.play('jump')
+        player.play('jump')
+        player.jump(speed * 2)
+      }
+    }
 
     if (player) {
       k.action('player', player => {
-        k.camPos(player.pos)
+        k.camPos(k.vec2(player.pos.x + 100, 124))
         if (player.pos.y > 208) {
           // music.pause()
           // k.play('death')
         }
       })
 
-      k.keyPressRep('left', () => {
-        player.move(k.vec2(-speed, 0))
+      k.keyRelease('left', () => {
+        player.play('idle')
       })
-      k.keyPressRep('right', () => {
-        player.move(k.vec2(speed, 0))
+      k.keyRelease('right', () => {
+        player.play('idle')
       })
-      k.keyPressRep('up', () => {
-        k.play('jump')
-        player.jump(300)
+      k.keyDown('left', () => {
+        player.move(-speed, 0)
+        player.play('walk')
       })
-      k.keyPressRep('down', () => {
-        player.move(k.vec2(0, speed))
+      k.keyDown('right', () => {
+        player.move(speed, 0)
+        player.play('walk')
       })
+      k.keyDown('up', doJump)
+      k.keyDown('space', doJump)
     } else {
       console.error('No player in map.')
     }
@@ -127,10 +145,10 @@ async function setup () {
 
   k = kaboom({
     plugins: [tiledKaboom],
-    scale: 4,
-    clearColor: [0, 0, 0, 1],
-    debug: true,
-    fullscreen: true
+    width: 208,
+    height: 208,
+    stretch: true,
+    letterbox: true
   })
 
   // load sounds
@@ -155,33 +173,20 @@ async function setup () {
     'victory'
   ].map(name => k.loadSound(name, `assets/sounds/${name}.ogg`)))
 
-  // load object sprites
-  // TODO: these are just markers for map-making. load the actual spritesheet here.
-  await Promise.all([
-    'bernie',
-    'cheese-left',
-    'cheese-right',
-    'cheeto',
-    'fire',
-    'fist',
-    'gopoboo',
-    'ice',
-    'lever',
-    'magamba-left',
-    'magamba-right',
-    'mitch-green-left',
-    'mitch-green-right',
-    'mitch-red-left',
-    'mitch-red-right',
-    'paramitch-green-left',
-    'paramitch-green-right',
-    'paramitch-red-left',
-    'paramitch-red-right',
-    'republican',
-    'tikitorcher-left',
-    'tikitorcher-right',
-    'trashman'
-  ].map(name => k.loadSprite(name, `assets/maps/objects/${name}.png`)))
+  k.loadSpriteAtlas('assets/sprites/spritesheet.png', {
+    bernie: {
+      x: 0,
+      y: 0,
+      width: 16 * 32,
+      height: 32,
+      sliceX: 32,
+      anims: {
+        walk: { from: 0, to: 4, loop: true, speed: 400 },
+        idle: { from: 10, to: 10 },
+        jump: { from: 7, to: 8 }
+      }
+    }
+  })
 
   // load levels
   await Promise.all([
