@@ -54,7 +54,6 @@ async function loadMap (name) {
 
     for (const o of layersObject) {
       const { objects } = layersAll[o]
-      console.log(layersAll[o])
       for (const object of objects) {
         if (object.type === 'player') {
           player = k.add([
@@ -65,6 +64,7 @@ async function loadMap (name) {
             k.area(),
             'player'
           ])
+          k.camPos(k.vec2(player.pos.x, 0))
         }
       }
     }
@@ -74,15 +74,20 @@ async function loadMap (name) {
     if (player) {
       k.keyPressRep('left', () => {
         player.move(k.vec2(-speed, 0))
+        k.camPos(k.vec2(player.pos.x, 0))
       })
       k.keyPressRep('right', () => {
         player.move(k.vec2(speed, 0))
+        k.camPos(k.vec2(player.pos.x, 0))
       })
       k.keyPressRep('up', () => {
-        player.move(k.vec2(0, -speed))
+        k.play('jump')
+        player.jump()
+        k.camPos(k.vec2(player.pos.x, 0))
       })
       k.keyPressRep('down', () => {
         player.move(k.vec2(0, speed))
+        k.camPos(k.vec2(player.pos.x, 0))
       })
     } else {
       console.error('No player in map.')
