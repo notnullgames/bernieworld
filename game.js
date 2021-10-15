@@ -94,22 +94,27 @@ async function loadMap (name) {
     // TODO: this movement is jerkey, jump sucks, and this camera logic is rudimentary
 
     if (player) {
+      k.action('player', player => {
+        k.camPos(player.pos)
+        console.log(player.pos.y)
+        if (player.pos.y > 200) {
+          // music.pause()
+          // k.play('death')
+        }
+      })
+
       k.keyPressRep('left', () => {
         player.move(k.vec2(-speed, 0))
-        k.camPos(k.vec2(player.pos.x, 0))
       })
       k.keyPressRep('right', () => {
         player.move(k.vec2(speed, 0))
-        k.camPos(k.vec2(player.pos.x, 0))
       })
       k.keyPressRep('up', () => {
         k.play('jump')
         player.jump()
-        k.camPos(k.vec2(player.pos.x, 0))
       })
       k.keyPressRep('down', () => {
         player.move(k.vec2(0, speed))
-        k.camPos(k.vec2(player.pos.x, 0))
       })
     } else {
       console.error('No player in map.')
