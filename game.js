@@ -96,8 +96,7 @@ async function loadMap (name) {
     if (player) {
       k.action('player', player => {
         k.camPos(player.pos)
-        console.log(player.pos.y)
-        if (player.pos.y > 200) {
+        if (player.pos.y > 208) {
           // music.pause()
           // k.play('death')
         }
@@ -111,7 +110,7 @@ async function loadMap (name) {
       })
       k.keyPressRep('up', () => {
         k.play('jump')
-        player.jump()
+        player.jump(300)
       })
       k.keyPressRep('down', () => {
         player.move(k.vec2(0, speed))
@@ -157,7 +156,7 @@ async function setup () {
   ].map(name => k.loadSound(name, `assets/sounds/${name}.ogg`)))
 
   // load object sprites
-  // TODO: these are just for map-making. load the actual spritesheet here.
+  // TODO: these are just markers for map-making. load the actual spritesheet here.
   await Promise.all([
     'bernie',
     'cheese-left',
