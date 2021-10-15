@@ -12,12 +12,10 @@ function getProperties (object) {
 // fully load a bernie map
 async function loadMap (name) {
   const { levels, key, mapObj } = await k.loadTiledMap(`./assets/maps/${name}.json`, './assets/maps/')
-
   const world = name.split('-')[0]
-
   const bgMap = await k.loadTiledMap(`./assets/maps/bg-world${world}.json`, './assets/maps/')
 
-  // load an alternate set of keys that has static() added
+  // load an alternate set of keys that has area/solid added (for blocks)
   const staticKey = {}
   Object.keys(key).forEach(k => {
     staticKey[k] = () => [...key[k](), area(), solid()]
