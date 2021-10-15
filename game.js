@@ -11,8 +11,11 @@ function getProperties (object) {
 
 // fully load a bernie map
 async function loadMap (name) {
-  const map = await fetch(`./assets/maps/${name}.json`).then(r => r.json())
-  const { levels, key, mapObj } = await k.loadTiledMap(map, './assets/maps/')
+  const { levels, key, mapObj } = await k.loadTiledMap(`./assets/maps/${name}.json`, './assets/maps/')
+
+  const world = name.split('-')[0]
+
+  const bgMap = await k.loadTiledMap(`./assets/maps/bg-world${world}.json`, './assets/maps/')
 
   // load an alternate set of keys that has static() added
   const staticKey = {}
@@ -40,13 +43,32 @@ async function loadMap (name) {
       loop: true
     })
 
-    k.layers(Object.keys(layersAll), layersObject[0] || layersTiled[layersTiled.length - 1])
+    k.layers(['bg', ...Object.keys(layersAll)], layersObject[0] || layersTiled[layersTiled.length - 1])
+
+    // load bg
+    // TODO: this is a pretty rudimentary way to repeat bg. I should figure out animating 1 bg for screen
+    const mapWidth = mapObj.width * mapObj.tilewidth
+    const bgWidth = bgMap.mapObj.width * bgMap.mapObj.tilewidth
+    let bgPos = 0
+    while (bgPos < mapWidth) {
+      for (const level of bgMap.levels) {
+        k.add([
+          k.addLevel(level, { pos: k.vec2(bgPos, 0), width: bgMap.mapObj.tilewidth, height: bgMap.mapObj.tileheight, ...bgMap.key }),
+          k.layer('bg')
+        ])
+      }
+      bgPos += bgWidth
+    }
+
     for (const l in layersTiled) {
       const props = getProperties(layersAll[layersTiled[l]])
       if (props.blocks) {
-        k.addLevel(levels[l], { width: mapObj.tileheight, height: mapObj.tilewidth, ...staticKey })
+        k.add([
+          k.addLevel(levels[l], { width: mapObj.tilewidth, height: mapObj.tileheight, ...staticKey }),
+          k.layer(layersTiled[l])
+        ])
       } else {
-        k.addLevel(levels[l], { width: mapObj.tileheight, height: mapObj.tilewidth, ...key })
+        k.addLevel(levels[l], { width: mapObj.tilewidth, height: mapObj.tileheight, ...key })
       }
     }
 
@@ -130,6 +152,7 @@ async function setup () {
   ].map(name => k.loadSound(name, `assets/sounds/${name}.ogg`)))
 
   // load object sprites
+  // TODO: these are just for map-making. load the actual spritesheet here.
   await Promise.all([
     'bernie',
     'cheese-left',
