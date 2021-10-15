@@ -90,46 +90,52 @@ async function loadMap (name) {
             k.origin('bot'),
             'player'
           ])
-          player.play('idle')
           k.camPos(k.vec2(player.pos.x, 0))
         }
       }
     }
 
     const speed = 200
+    let jumping = false
 
     // TODO: this movement is jerky, jump sucks, and this camera logic is rudimentary
 
     function doJump () {
       if (player.grounded()) {
         k.play('jump')
-        player.play('jump')
         player.jump(speed * 2)
+        jumping = true
       }
     }
 
     if (player) {
       k.action('player', player => {
         k.camPos(k.vec2(player.pos.x + 100, 124))
+
+        if (player.grounded()) {
+          jumping = false
+        }
+
+        if (jumping) {
+          player.play('jump')
+        } else {
+          player.play('idle')
+        }
+
+        console.log(player.frame)
+
         if (player.pos.y > 208) {
           // music.pause()
           // k.play('death')
         }
       })
-
-      k.keyRelease('left', () => {
-        player.play('idle')
-      })
-      k.keyRelease('right', () => {
-        player.play('idle')
-      })
       k.keyDown('left', () => {
         player.move(-speed, 0)
-        player.play('walk')
+        player.flipX(true)
       })
       k.keyDown('right', () => {
         player.move(speed, 0)
-        player.play('walk')
+        player.flipX(false)
       })
       k.keyDown('up', doJump)
       k.keyDown('space', doJump)
@@ -173,18 +179,19 @@ async function setup () {
     'victory'
   ].map(name => k.loadSound(name, `assets/sounds/${name}.ogg`)))
 
-  k.loadSpriteAtlas('assets/sprites/spritesheet.png', {
+  await k.loadSpriteAtlas('assets/sprites/spritesheet.png', {
     bernie: {
       x: 0,
       y: 0,
-      width: 16 * 32,
+      width: 512,
       height: 32,
       sliceX: 32,
       anims: {
-        walk: { from: 0, to: 4, loop: true, speed: 400 },
-        idle: { from: 10, to: 10 },
-        jump: { from: 7, to: 8 }
-      }
+        walk: { from: 2, to: 4, loop: true, speed: 1 },
+        idle: { from: 2, to: 0, loop: true, speed: 0.5 },
+        jump: { from: 7, to: 8, speed: 3 }
+      },
+      anim: 'idle'
     }
   })
 
